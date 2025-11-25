@@ -1,6 +1,4 @@
-﻿using Whispers;
-
-namespace Whispers.Tests;
+﻿namespace Whispers.Tests;
 
 public class FileExtensionsTests
 {
