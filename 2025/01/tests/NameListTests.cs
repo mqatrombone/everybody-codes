@@ -21,7 +21,7 @@ public class NameListTests
         {
             actual.Right();
         }
-        
+
         Assert.That(actual.Current, Is.EqualTo(actual.List[^1]));
     }
 
@@ -34,7 +34,7 @@ public class NameListTests
         actual.Right();
         actual.Left();
         actual.Left();
-        
+
         Assert.That(actual.Current, Is.EqualTo(actual.List[0]));
     }
 }
