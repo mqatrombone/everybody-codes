@@ -9,9 +9,9 @@ public class NameList
     private LinkedListNode<string> _current;
 
     public IReadOnlyList<string> List => _names.ToImmutableList();
-    
+
     public string Current => _current.Value;
-    
+
     public NameList(IEnumerable<string> source)
     {
         ArgumentNullException.ThrowIfNull(source);
