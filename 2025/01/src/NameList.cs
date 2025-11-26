@@ -24,7 +24,15 @@ public class NameList
     {
         if (_current.Next is null)
             return;
-        
+
         _current = _current.Next;
+    }
+
+    public void Left()
+    {
+        if (_current.Previous is null)
+            return;
+
+        _current = _current.Previous;
     }
 }

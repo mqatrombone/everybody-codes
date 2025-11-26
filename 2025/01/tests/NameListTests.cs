@@ -24,4 +24,17 @@ public class NameListTests
         
         Assert.That(actual.Current, Is.EqualTo(actual.List[^1]));
     }
+
+    [Test]
+    public void LeftDoesNotGoPastFirst()
+    {
+        const string source = "Vyrdax,Drakzyph,Fyrryn,Elarzris";
+        NameList actual = new(source.Split(','));
+
+        actual.Right();
+        actual.Left();
+        actual.Left();
+        
+        Assert.That(actual.Current, Is.EqualTo(actual.List[0]));
+    }
 }
