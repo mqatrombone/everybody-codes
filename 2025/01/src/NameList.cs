@@ -27,31 +27,11 @@ public class NameList
         _current = _current.Next;
     }
 
-    public void Right(int count)
-    {
-        ArgumentOutOfRangeException.ThrowIfLessThan(count, 1);
-
-        for (int i = 0; i < count; i++)
-        {
-            Right();
-        }
-    }
-
     public void Left()
     {
         if (_current.Previous is null)
             return;
 
         _current = _current.Previous;
-    }
-
-    public void Left(int count)
-    {
-        ArgumentOutOfRangeException.ThrowIfLessThan(count, 1);
-
-        for (int i = 0; i < count; i++)
-        {
-            Left();
-        }
     }
 }
