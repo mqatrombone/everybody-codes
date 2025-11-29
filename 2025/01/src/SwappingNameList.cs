@@ -14,7 +14,7 @@ public class SwappingNameList : INameList
         _names = new LinkedList<string>(source);
     }
 
-    public void Right(int count)
+    public void CommandR(int count)
     {
         if (_names.First is null)
         {
@@ -31,7 +31,7 @@ public class SwappingNameList : INameList
         (_names.First.Value, current.Value) = (current.Value, _names.First.Value);
     }
 
-    public void Left(int count)
+    public void CommandL(int count)
     {
         if (_names.First is null)
         {

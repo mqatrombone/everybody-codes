@@ -24,7 +24,7 @@ public class CircularNameList : INameList
                    ?? new LinkedListNode<string>(string.Empty);
     }
 
-    public void Right(int count)
+    public void CommandR(int count)
     {
         ArgumentOutOfRangeException.ThrowIfLessThan(count, 1);
 
@@ -41,7 +41,7 @@ public class CircularNameList : INameList
                    ?? new LinkedListNode<string>(string.Empty);
     }
 
-    public void Left(int count)
+    public void CommandL(int count)
     {
         ArgumentOutOfRangeException.ThrowIfLessThan(count, 1);
 

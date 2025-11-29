@@ -43,11 +43,11 @@ public class LinearNameListTests
     [TestCase("Vyrdax,Drakzyph,Fyrryn,Elarzris", 2, "Fyrryn")]
     [TestCase("Vyrdax,Drakzyph,Fyrryn,Elarzris", 3, "Elarzris")]
     [TestCase("Vyrdax,Drakzyph,Fyrryn,Elarzris", 5, "Elarzris")]
-    public void RightWithArgGoesCorrectDistance(string source, int count, string expected)
+    public void CommandRGoesCorrectDistance(string source, int count, string expected)
     {
         LinearNameList sut = new(source.Split(','));
 
-        sut.Right(count);
+        sut.CommandR(count);
 
         Assert.That(sut.Current, Is.EqualTo(expected));
     }
@@ -57,14 +57,14 @@ public class LinearNameListTests
     [TestCase("Vyrdax,Drakzyph,Fyrryn,Elarzris", 2, "Drakzyph")]
     [TestCase("Vyrdax,Drakzyph,Fyrryn,Elarzris", 3, "Vyrdax")]
     [TestCase("Vyrdax,Drakzyph,Fyrryn,Elarzris", 5, "Vyrdax")]
-    public void LeftWithArgGoesCorrectDistance(string source, int count, string expected)
+    public void CommandLGoesCorrectDistance(string source, int count, string expected)
     {
         // Arrange
         LinearNameList sut = new(source.Split(','));
 
         // Act
-        sut.Right(3);
-        sut.Left(count);
+        sut.CommandR(3);
+        sut.CommandL(count);
 
         Assert.That(sut.Current, Is.EqualTo(expected));
     }

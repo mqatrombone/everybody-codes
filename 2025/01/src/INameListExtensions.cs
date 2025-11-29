@@ -6,12 +6,12 @@ public static class INameListExtensions
     {
         public void Right(int count)
         {
-            list.Right(count);
+            list.CommandR(count);
         }
 
         public void Left(int count)
         {
-            list.Left(count);
+            list.CommandL(count);
         }
     }
 }

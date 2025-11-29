@@ -12,22 +12,22 @@ public class SwappingNameListTests
     }
 
     [Test]
-    public void RightOneSwapsCorrectly()
+    public void CommandROneSwapsCorrectly()
     {
         const string source = "Vyrdax,Drakzyph,Fyrryn,Elarzris";
         SwappingNameList sut = new(source.Split(','));
-        sut.Right(1);
+        sut.CommandR(1);
 
         const string expected = "Drakzyph,Vyrdax,Fyrryn,Elarzris";
         Assert.That(string.Join(',', sut.List), Is.EqualTo(expected));
     }
 
     [Test]
-    public void LeftOneSwapsCorrectly()
+    public void CommandLOneSwapsCorrectly()
     {
         const string source = "Vyrdax,Drakzyph,Fyrryn,Elarzris";
         SwappingNameList sut = new(source.Split(','));
-        sut.Left(1);
+        sut.CommandL(1);
 
         const string expected = "Elarzris,Drakzyph,Fyrryn,Vyrdax";
         Assert.That(string.Join(',', sut.List), Is.EqualTo(expected));
@@ -39,10 +39,10 @@ public class SwappingNameListTests
         const string source = "Vyrdax,Drakzyph,Fyrryn,Elarzris";
         SwappingNameList sut = new(source.Split(','));
 
-        sut.Right(3);
-        sut.Left(2);
-        sut.Right(3);
-        sut.Left(3);
+        sut.CommandR(3);
+        sut.CommandL(2);
+        sut.CommandR(3);
+        sut.CommandL(3);
 
         const string expected = "Drakzyph,Vyrdax,Elarzris,Fyrryn";
         Assert.That(string.Join(',', sut.List), Is.EqualTo(expected));
