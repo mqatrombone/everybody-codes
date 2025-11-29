@@ -24,10 +24,30 @@ public class CircularNameList : INameList
                    ??  new LinkedListNode<string>(string.Empty);
     }
 
+    public void Right(int count)
+    {
+        ArgumentOutOfRangeException.ThrowIfLessThan(count, 1);
+
+        for (int i = 0; i < count; i++)
+        {
+            Right();
+        }
+    }
+
     public void Left()
     {
         _current = _current.Previous
                    ?? _names.Last
                    ?? new LinkedListNode<string>(string.Empty);
+    }
+
+    public void Left(int count)
+    {
+        ArgumentOutOfRangeException.ThrowIfLessThan(count, 1);
+
+        for (int i = 0; i < count; i++)
+        {
+            Left();
+        }
     }
 }

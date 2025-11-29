@@ -6,22 +6,12 @@ public static class INameListExtensions
     {
         public void Right(int count)
         {
-            ArgumentOutOfRangeException.ThrowIfLessThan(count, 1);
-
-            for (int i = 0; i < count; i++)
-            {
-                list.Right();
-            }
+            list.Right(count);
         }
 
         public void Left(int count)
         {
-            ArgumentOutOfRangeException.ThrowIfLessThan(count, 1);
-
-            for (int i = 0; i < count; i++)
-            {
-                list.Left();
-            }
+            list.Left(count);
         }
     }
 }
