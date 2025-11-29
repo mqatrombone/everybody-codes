@@ -15,12 +15,20 @@ public static class Program
 
         Console.WriteLine($"Name is {linearNames.Current}");
 
-        var parentNameInputData = await File.ReadAllLinesAsync("Phase2Input.txt");
-        CircularNameList circularNames = new(parentNameInputData.ParseNames());
-        ImmutableList<NameListCommand> parentNameCommands = parentNameInputData.ParseCommands();
+        var firstParentNameInput = await File.ReadAllLinesAsync("Phase2Input.txt");
+        CircularNameList circularNames = new(firstParentNameInput.ParseNames());
+        ImmutableList<NameListCommand> firstParentNameCommands = firstParentNameInput.ParseCommands();
 
-        parentNameCommands.ForEach(command => command.Command(circularNames, command.Count));
+        firstParentNameCommands.ForEach(command => command.Command(circularNames, command.Count));
 
         Console.WriteLine($"First Parent Name is {circularNames.Current}");
+
+        var secondParentNameInput = await File.ReadAllLinesAsync("Phase3Input.txt");
+        SwappingNameList swappingNames = new(secondParentNameInput.ParseNames());
+        ImmutableList<NameListCommand> secondParentNameCommands = secondParentNameInput.ParseCommands();
+
+        secondParentNameCommands.ForEach(command => command.Command(swappingNames, command.Count));
+
+        Console.WriteLine($"Second Parent Name is {swappingNames.List[0]}");
     }
 }
