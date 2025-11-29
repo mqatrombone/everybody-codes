@@ -2,23 +2,26 @@ namespace Whispers;
 
 public static class NameListExtensions
 {
-    public static void Right(this NameList list, int count)
+    extension(NameList list)
     {
-        ArgumentOutOfRangeException.ThrowIfLessThan(count, 1);
-
-        for (int i = 0; i < count; i++)
+        public void Right(int count)
         {
-            list.Right();
+            ArgumentOutOfRangeException.ThrowIfLessThan(count, 1);
+
+            for (int i = 0; i < count; i++)
+            {
+                list.Right();
+            }
         }
-    }
 
-    public static void Left(this NameList list, int count)
-    {
-        ArgumentOutOfRangeException.ThrowIfLessThan(count, 1);
-
-        for (int i = 0; i < count; i++)
+        public void Left(int count)
         {
-            list.Left();
+            ArgumentOutOfRangeException.ThrowIfLessThan(count, 1);
+
+            for (int i = 0; i < count; i++)
+            {
+                list.Left();
+            }
         }
     }
 }
