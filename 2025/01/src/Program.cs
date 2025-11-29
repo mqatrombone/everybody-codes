@@ -8,11 +8,11 @@ public static class Program
     {
         var inputData = await File.ReadAllLinesAsync("Phase1Input.txt");
 
-        NameList names = new(inputData.ParseNames());
+        LinearNameList linearNames = new(inputData.ParseNames());
         ImmutableList<NameListCommand> commands = inputData.ParseCommands();
 
-        commands.ForEach(command => command.Command(names, command.Count));
+        commands.ForEach(command => command.Command(linearNames, command.Count));
 
-        Console.WriteLine($"Name is {names.Current}");
+        Console.WriteLine($"Name is {linearNames.Current}");
     }
 }

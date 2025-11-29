@@ -2,7 +2,7 @@ using System.Collections.Immutable;
 
 namespace Whispers;
 
-public class NameList
+public class LinearNameList : INameList
 {
     private readonly LinkedList<string> _names;
 
@@ -12,7 +12,7 @@ public class NameList
 
     public string Current => _current.Value;
 
-    public NameList(IEnumerable<string> source)
+    public LinearNameList(IEnumerable<string> source)
     {
         ArgumentNullException.ThrowIfNull(source);
         _names = new LinkedList<string>(source);

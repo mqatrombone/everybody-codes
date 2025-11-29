@@ -28,10 +28,10 @@ public class FileExtensionsTests
         // R3,L2,R3,L1
         List<NameListCommand> expectedCommands =
         [
-            new() { Command = NameListExtensions.Right, Count = 3 },
-            new() { Command = NameListExtensions.Left, Count = 2 },
-            new() { Command = NameListExtensions.Right, Count = 3 },
-            new() { Command = NameListExtensions.Left, Count = 1 }
+            new() { Command = INameListExtensions.Right, Count = 3 },
+            new() { Command = INameListExtensions.Left, Count = 2 },
+            new() { Command = INameListExtensions.Right, Count = 3 },
+            new() { Command = INameListExtensions.Left, Count = 1 }
         ];
 
         Assert.That(inputCommands, Is.EqualTo(expectedCommands));

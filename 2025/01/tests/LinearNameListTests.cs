@@ -1,12 +1,12 @@
 namespace Whispers.Tests;
 
-public class NameListTests
+public class LinearNameListTests
 {
     [Test]
     public void CreateDoesNotAlterOrder()
     {
         const string source = "Vyrdax,Drakzyph,Fyrryn,Elarzris";
-        NameList actual = new(source.Split(','));
+        LinearNameList actual = new(source.Split(','));
 
         Assert.That(string.Join(',', actual.List), Is.EqualTo(source));
     }
@@ -15,7 +15,7 @@ public class NameListTests
     public void RightDoesNotGoPastLast()
     {
         const string source = "Vyrdax,Drakzyph,Fyrryn,Elarzris";
-        NameList actual = new(source.Split(','));
+        LinearNameList actual = new(source.Split(','));
 
         for (int i = 0; i <= actual.List.Count; i++)
         {
@@ -29,7 +29,7 @@ public class NameListTests
     public void LeftDoesNotGoPastFirst()
     {
         const string source = "Vyrdax,Drakzyph,Fyrryn,Elarzris";
-        NameList actual = new(source.Split(','));
+        LinearNameList actual = new(source.Split(','));
 
         actual.Right();
         actual.Left();
@@ -45,7 +45,7 @@ public class NameListTests
     [TestCase("Vyrdax,Drakzyph,Fyrryn,Elarzris", 5, "Elarzris")]
     public void RightWithArgGoesCorrectDistance(string source, int count, string expected)
     {
-        NameList sut = new(source.Split(','));
+        LinearNameList sut = new(source.Split(','));
 
         sut.Right(count);
 
@@ -60,7 +60,7 @@ public class NameListTests
     public void LeftWithArgGoesCorrectDistance(string source, int count, string expected)
     {
         // Arrange
-        NameList sut = new(source.Split(','));
+        LinearNameList sut = new(source.Split(','));
 
         // Act
         sut.Right(3);

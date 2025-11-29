@@ -19,8 +19,8 @@ public static class FileStreamExtensions
             {
                 Command = x[0] switch
                 {
-                    'R' => NameListExtensions.Right,
-                    'L' => NameListExtensions.Left,
+                    'R' => INameListExtensions.Right,
+                    'L' => INameListExtensions.Left,
                     _ => throw new ArgumentOutOfRangeException(nameof(inputLines))
                 },
                 Count = int.Parse(x[1..])

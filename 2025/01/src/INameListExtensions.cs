@@ -1,8 +1,8 @@
 namespace Whispers;
 
-public static class NameListExtensions
+public static class INameListExtensions
 {
-    extension(NameList list)
+    extension(INameList list)
     {
         public void Right(int count)
         {

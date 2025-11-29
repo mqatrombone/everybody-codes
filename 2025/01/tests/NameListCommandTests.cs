@@ -9,7 +9,7 @@ public class NameListCommandTests
     {
         Assert.That(() =>
         {
-            _ = new NameListCommand { Command = NameListExtensions.Right, Count = count };
+            _ = new NameListCommand { Command = INameListExtensions.Right, Count = count };
         }, Throws.TypeOf<ArgumentOutOfRangeException>());
     }
 }
