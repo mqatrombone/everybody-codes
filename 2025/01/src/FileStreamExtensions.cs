@@ -4,24 +4,27 @@ namespace Whispers;
 
 public static class FileStreamExtensions
 {
-    public static LinkedList<string> ParseNames(this string[] inputLines)
+    extension(string[] inputLines)
     {
-        var names = inputLines[0].Split(',');
-        return new LinkedList<string>(names);
-    }
-
-    public static ImmutableList<NameListCommand> ParseCommands(this string[] inputLines)
-    {
-        var commands = inputLines[^1].Split(',');
-        return commands.Select(x => new NameListCommand
+        public LinkedList<string> ParseNames()
         {
-            Command = x[0] switch
+            var names = inputLines[0].Split(',');
+            return new LinkedList<string>(names);
+        }
+
+        public ImmutableList<NameListCommand> ParseCommands()
+        {
+            var commands = inputLines[^1].Split(',');
+            return commands.Select(x => new NameListCommand
             {
-                'R' => NameListExtensions.Right,
-                'L' => NameListExtensions.Left,
-                _ => throw new ArgumentOutOfRangeException(nameof(inputLines))
-            },
-            Count = int.Parse(x[1..])
-        }).ToImmutableList();
+                Command = x[0] switch
+                {
+                    'R' => NameListExtensions.Right,
+                    'L' => NameListExtensions.Left,
+                    _ => throw new ArgumentOutOfRangeException(nameof(inputLines))
+                },
+                Count = int.Parse(x[1..])
+            }).ToImmutableList();
+        }
     }
 }
