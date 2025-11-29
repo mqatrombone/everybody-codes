@@ -33,6 +33,23 @@ public class SwappingNameList : INameList
 
     public void Left(int count)
     {
-        throw new NotImplementedException();
+        if (_names.First is null)
+        {
+            return;
+        }
+
+        if (_names.Last is null)
+        {
+            return;
+        }
+
+        LinkedListNode<string> current = _names.First;
+
+        for (int i = 0; i < count; i++)
+        {
+            current = current.Previous ?? _names.Last;
+        }
+
+        (_names.First.Value, current.Value) = (current.Value, _names.First.Value);
     }
 }

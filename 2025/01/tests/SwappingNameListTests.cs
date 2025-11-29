@@ -21,4 +21,15 @@ public class SwappingNameListTests
         const string expected = "Drakzyph,Vyrdax,Fyrryn,Elarzris";
         Assert.That(string.Join(',', sut.List), Is.EqualTo(expected));
     }
+
+    [Test]
+    public void LeftOneSwapsCorrectly()
+    {
+        const string source = "Vyrdax,Drakzyph,Fyrryn,Elarzris";
+        SwappingNameList sut = new(source.Split(','));
+        sut.Left(1);
+
+        const string expected = "Elarzris,Drakzyph,Fyrryn,Vyrdax";
+        Assert.That(string.Join(',', sut.List), Is.EqualTo(expected));
+    }
 }
