@@ -24,6 +24,6 @@ public class CircularNameList : INameList
 
     public void Left()
     {
-        throw new NotImplementedException();
+        _current = (_current.Previous ?? _names.Last) ?? new LinkedListNode<string>(string.Empty);
     }
 }
