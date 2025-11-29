@@ -21,7 +21,7 @@ public class CircularNameList : INameList
     {
         _current = _current.Next
                    ?? _names.First
-                   ??  new LinkedListNode<string>(string.Empty);
+                   ?? new LinkedListNode<string>(string.Empty);
     }
 
     public void Right(int count)
