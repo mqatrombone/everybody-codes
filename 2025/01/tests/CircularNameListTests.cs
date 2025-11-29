@@ -21,4 +21,16 @@ public class CircularNameListTests
 
         Assert.That(sut.Current, Is.EqualTo("Elarzris"));
     }
+
+    [Test]
+    public void RightLoopsBackToFirst()
+    {
+        const string source = "Vyrdax,Drakzyph,Fyrryn,Elarzris";
+        CircularNameList sut = new(source.Split(','));
+
+        sut.Left();
+        sut.Right();
+
+        Assert.That(sut.Current, Is.EqualTo("Vyrdax"));
+    }
 }

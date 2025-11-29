@@ -19,11 +19,15 @@ public class CircularNameList : INameList
 
     public void Right()
     {
-        throw new NotImplementedException();
+        _current = _current.Next
+                   ?? _names.First
+                   ??  new LinkedListNode<string>(string.Empty);
     }
 
     public void Left()
     {
-        _current = (_current.Previous ?? _names.Last) ?? new LinkedListNode<string>(string.Empty);
+        _current = _current.Previous
+                   ?? _names.Last
+                   ?? new LinkedListNode<string>(string.Empty);
     }
 }
