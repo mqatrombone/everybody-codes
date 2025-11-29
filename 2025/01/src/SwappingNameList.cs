@@ -2,7 +2,7 @@ using System.Collections.Immutable;
 
 namespace Whispers;
 
-public class SwappingNameList
+public class SwappingNameList : INameList
 {
     private readonly LinkedList<string> _names;
 
@@ -12,5 +12,27 @@ public class SwappingNameList
     {
         ArgumentNullException.ThrowIfNull(source);
         _names = new LinkedList<string>(source);
+    }
+
+    public void Right(int count)
+    {
+        if (_names.First is null)
+        {
+            return;
+        }
+
+        LinkedListNode<string> current = _names.First;
+
+        for (int i = 0; i < count; i++)
+        {
+            current = current.Next ?? _names.First;
+        }
+
+        (_names.First.Value, current.Value) = (current.Value, _names.First.Value);
+    }
+
+    public void Left(int count)
+    {
+        throw new NotImplementedException();
     }
 }
